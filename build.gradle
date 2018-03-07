@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+    }
+}
+
+group 'bootit'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:2.0.0.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-actuator:2.0.0.RELEASE")
+    compile("io.micrometer:micrometer-registry-prometheus:latest.release")
+    compile("com.h2database:h2")
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
+    compile("org.springframework.boot:spring-boot-starter-amqp")
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE")
+}
