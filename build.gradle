@@ -1,9 +1,12 @@
 buildscript {
+    ext.kotlin_version = '1.2.30'
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
     }
 }
 
@@ -11,6 +14,8 @@ group 'bootit'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: "kotlin-jpa"
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
@@ -30,4 +35,17 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
     compile("org.springframework.boot:spring-boot-starter-amqp")
     testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE")
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
