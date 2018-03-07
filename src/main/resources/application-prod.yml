@@ -1,3 +1,7 @@
+bootit:
+  mq:
+    queue-name: "bootit"
+
 spring:
   jpa:
     hibernate:
