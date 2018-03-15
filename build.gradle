@@ -34,9 +34,12 @@ dependencies {
     compile("com.h2database:h2")
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
     compile("org.springframework.boot:spring-boot-starter-amqp")
-    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE")
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect"
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE")
+    testCompile 'com.tngtech.jgiven:jgiven-junit:0.15.3'
+    testCompile("com.tngtech.jgiven:jgiven-spring:0.15.3")
 }
 
 compileKotlin {
