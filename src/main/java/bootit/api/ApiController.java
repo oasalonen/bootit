@@ -8,7 +8,7 @@ public class ApiController {
 
     @RequestMapping("/api")
     public String api() {
-        return "API!";
+        return "APIv3!";
     }
 
 }
