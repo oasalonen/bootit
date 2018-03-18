@@ -12,7 +12,7 @@ public class ApiController {
 
     @RequestMapping("/api")
     public String api() {
-        log.info("API was called");
+        log.debug("API was called");
         return "APIv3!";
     }
 
