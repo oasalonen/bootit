@@ -1,3 +1,7 @@
+app:
+  name: bootit
+  version: '1.0'
+
 server:
   port: 8001
 

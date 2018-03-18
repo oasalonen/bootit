@@ -39,6 +39,8 @@ dependencies {
 
     compile "org.springframework.boot:spring-boot-devtools:2.0.0.RELEASE"
 
+    compile "net.logstash.logback:logstash-logback-encoder:5.0"
+
     testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE")
     testCompile 'com.tngtech.jgiven:jgiven-junit:0.15.3'
     testCompile("com.tngtech.jgiven:jgiven-spring:0.15.3")

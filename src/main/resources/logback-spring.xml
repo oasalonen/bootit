@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <springProperty scope="context" name="app_name" source="app.name"/>
+    <springProperty scope="context" name="app_version" source="app.version"/>
+
+    <appender name="JSON" class="ch.qos.logback.core.FileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}.json</file>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeCallerInfo>true</includeCallerInfo>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="JSON" />
+    </root>
+    <logger name="org.springframework" level="INFO"/>
+</configuration>
