@@ -15,7 +15,6 @@ $ ./gradlew dockerPush
 ```  
   
 ## (Optional) Fire up ELK stack
-Run the following twice. First run fails because the required namespace is created in the wrong order. TODO when I feel like it. Never? Probably.
 ```
 $ kubectl apply -f kubernetes/elk
 ```
