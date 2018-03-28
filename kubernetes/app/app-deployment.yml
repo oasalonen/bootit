@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bootit
+spec:
+  type: LoadBalancer
+  selector:
+    app: bootit
+  ports:
+  - port: 8002
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: bootit
+  labels:
+    app: bootit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bootit
+  template:
+    metadata:
+      labels:
+        app: bootit
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: bootit
+        image: localhost:5000/bootit
+        args: [
+          "--spring.profiles.active=dev"
+        ]
+        ports:
+        - containerPort: 8002
+          name: rest

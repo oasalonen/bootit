@@ -10,6 +10,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.palantir.docker' version '0.19.2'
+}
+
 group 'bootit'
 version '1.0-SNAPSHOT'
 
@@ -27,9 +31,9 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa:2.0.0.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter-actuator:2.0.0.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("io.micrometer:micrometer-registry-prometheus:latest.release")
     compile("com.h2database:h2")
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
@@ -37,11 +41,11 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect"
 
-    compile "org.springframework.boot:spring-boot-devtools:2.0.0.RELEASE"
+    compile "org.springframework.boot:spring-boot-devtools"
 
     compile "net.logstash.logback:logstash-logback-encoder:5.0"
 
-    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile 'com.tngtech.jgiven:jgiven-junit:0.15.3'
     testCompile("com.tngtech.jgiven:jgiven-spring:0.15.3")
 }
@@ -55,4 +59,13 @@ compileTestKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+bootJar {
+}
+
+docker {
+    name "localhost:5000/${project.group}"
+    files jar.archivePath
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }

@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: filebeat
-  namespace: kube-system
+  namespace: elk
   labels:
     k8s-app: filebeat
     kubernetes.io/cluster-service: "true"
