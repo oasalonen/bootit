@@ -26,7 +26,19 @@ $ kubectl apply -f kubernetes/app
 ```
 Now hit some endpoints, e.g. ```http://localhost:8002/api```
 
-# Next (notes for myself)  
+# Next (notes for myself)
+## Kubernetes
+- API versions to stable where possible
+- Review/cleanup of yaml files in general
+- Check if elk namespace should not be applied with the rest
+- Replicas, simulate failures
+- CD pipeline with Kubernetes rollouts (gitops, flux)
+- Readiness check on actuator with multiple replicas for rollous
+- monitor postgresql with elk, alert on certain queries
+- simplify port mapping: all endpoints for general use to 80
+- check out https://github.com/fabric8io/configmapcontroller for redeploying after configmap updates
+## App
+- correlation ID (can it be sent to db queries as well?)
 - authorization, oauth2 providers  
 - caching (with redis)  
 - check if mq code can be mostly removed (besides listener)  
@@ -34,3 +46,4 @@ Now hit some endpoints, e.g. ```http://localhost:8002/api```
 - javax.validation of params  
 - faster unit test (less spring init)  
   - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+- check spring cloud and kubernetes integration
