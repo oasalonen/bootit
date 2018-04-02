@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
 public class BootitApplication {
 
     public static void main(String[] args) {
+        //System.exit(1);
         SpringApplication.run(BootitApplication.class, args);
     }
 

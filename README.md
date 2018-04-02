@@ -21,9 +21,6 @@ Follow the setup instructions for [bootit cluster](https://github.com/oasalonen/
 - API versions to stable where possible
 - Review/cleanup of yaml files in general
 - Check if elk namespace should not be applied with the rest
-- Replicas, simulate failures
-- CD pipeline with Kubernetes rollouts (gitops, flux)
-- Readiness check on actuator with multiple replicas for rollous
 - monitor postgresql with elk, alert on certain queries
 - simplify port mapping: all endpoints for general use to 80
 - check out https://github.com/fabric8io/configmapcontroller for redeploying after configmap updates

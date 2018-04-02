@@ -65,7 +65,7 @@ bootJar {
 }
 
 docker {
-    name "ollireg.azurecr.io/${project.group}/bootit:1.0.3"
+    name "ollireg.azurecr.io/${project.group}/bootit:1.0.10"
     files jar.archivePath
     buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }
