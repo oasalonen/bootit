@@ -15,7 +15,13 @@ plugins {
 }
 
 group 'bootit'
-version '1.0-SNAPSHOT'
+version '1.0'
+
+ext {
+    appName = 'bootit'
+    buildNumber = '20'
+    containerRegistry = 'ollireg.azurecr.io'
+}
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
@@ -28,6 +34,16 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+processResources {
+    // This is done to replace placeholders in app properties with gradle props
+    // Need to define expandProps and pass them as input props so gradle sees changes properly.
+    def expandProps = [appName: appName, version: version, buildNumber: buildNumber]
+    inputs.properties(expandProps)
+    filesMatching('application*.yml') {
+        expand(expandProps)
+    }
 }
 
 dependencies {
@@ -65,7 +81,7 @@ bootJar {
 }
 
 docker {
-    name "ollireg.azurecr.io/${project.group}/bootit:1.0.10"
+    name "${containerRegistry}/${project.group}/${appName}:${version}.${buildNumber}"
     files jar.archivePath
     buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }

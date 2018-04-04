@@ -14,10 +14,13 @@ public class ApiController {
     @Value("${POD_NAME}")
     private String podName;
 
+    @Value("${app.build}")
+    private Integer build;
+
     @RequestMapping("/api")
     public String api() {
         log.debug("API was called");
-        return "APIv10 @ " + podName;
+        return "API v" + build + " @ " + podName;
     }
 
     @RequestMapping("/nuke")
