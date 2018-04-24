@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.30'
+    ext.kotlin_version = '1.2.31'
     repositories {
         mavenCentral()
     }
@@ -19,7 +19,7 @@ version '1.0'
 
 ext {
     appName = 'bootit'
-    buildNumber = '22'
+    buildNumber = '23'
     containerRegistry = 'ollireg.azurecr.io'
 }
 
@@ -50,10 +50,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-amqp")
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
     compile("io.micrometer:micrometer-registry-prometheus:latest.release")
     compile("com.h2database:h2")
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
-    compile("org.springframework.boot:spring-boot-starter-amqp")
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect"
 

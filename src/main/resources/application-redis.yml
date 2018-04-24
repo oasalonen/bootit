@@ -1,0 +1,6 @@
+spring:
+  cache:
+    type: redis
+  redis:
+    host: cache
+    port: 80

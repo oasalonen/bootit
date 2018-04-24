@@ -1,7 +1,8 @@
 spring:
-  datasource:
-    url: jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1
-    driver-class-name: org.h2.Driver
+  profiles:
+    include: >
+      h2,
+      redis
 
 logging:
   level:

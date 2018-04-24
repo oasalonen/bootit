@@ -1,0 +1,4 @@
+bootit:
+  mq:
+    queue-name: "bootit"
+

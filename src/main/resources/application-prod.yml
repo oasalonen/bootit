@@ -1,17 +1,7 @@
-bootit:
-  mq:
-    queue-name: "bootit"
-
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
-  datasource:
-    url: jdbc:postgresql://localhost:5432/bootitdb
-    username: postgres
-    password: postgres
+  profiles:
+    include: >
+      h2,
+      redis
+#      rabbitmq,
+#      postgresql
