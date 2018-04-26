@@ -19,7 +19,7 @@ version '1.0'
 
 ext {
     appName = 'bootit'
-    buildNumber = '23'
+    buildNumber = '28'
     containerRegistry = 'ollireg.azurecr.io'
 }
 
